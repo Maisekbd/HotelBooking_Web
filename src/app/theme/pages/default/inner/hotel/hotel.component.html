@@ -1,0 +1,69 @@
+<div class="m-portlet m-portlet--creative m-portlet--bordered-semi">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon m--hide">
+                    <i class="flaticon-statistics"></i>
+                </span>
+
+                <h2 class="m-portlet__head-label m-portlet__head-label--success">
+                    <span>Hotel</span>
+                </h2>
+            </div>
+        </div>
+
+    </div>
+    <div class="m-portlet__body">
+        <form class="hotel-form" #hotelForm="ngForm" (ngSubmit)="onSubmit(hotelForm)">
+            <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="hotelService.selectedHotel.Id">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Name</label>
+                    <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="hotelService.selectedHotel.Name"
+                           placeholder="Name" required>
+                    <div class="validation-error" *ngIf="Name.invalid && Name.touched">This Field is Required.</div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Number of Rooms</label>
+                    <input class="form-control" name="RoomsNo" #RoomsNo="ngModel" [(ngModel)]="hotelService.selectedHotel.RoomsNo" placeholder="RoomsNo"
+                           required>
+                    <div class="validation-error" *ngIf="RoomsNo.invalid && RoomsNo.touched">This Field is Required.</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Description</label>
+                    <textarea cols="40" rows="5" class="form-control" name="Description" #Description="ngModel" [(ngModel)]="hotelService.selectedHotel.Description"
+                              placeholder="Description" required>
+                    </textarea>
+                    <div class="validation-error" *ngIf="Description.invalid && Description.touched">This Field is Required.</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Location</label>
+                    <textarea cols="40" rows="5" class="form-control" name="Location" #Location="ngModel" [(ngModel)]="hotelService.selectedHotel.Location" placeholder="Location"
+                              required>
+                    </textarea>
+                    <div class="validation-error" *ngIf="Location.invalid && Location.touched">This Field is Required.</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <button [disabled]="!hotelForm.valid" type="submit" class="btn btn-lg btn-block btn-success">
+                        <i class="fa fa-floppy-o"></i> Submit
+                    </button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(hotelForm)">
+                        <i class="fa fa-repeat"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

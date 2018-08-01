@@ -1,0 +1,27 @@
+
+<table class="table m-table m-table--head-bg-success">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Rooms NO</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+  <tr *ngFor="let hotel of hotelService.hotelList">
+      <td>{{hotel.Id}}</td>
+    <td>{{hotel.Name}} </td>
+    <td>{{hotel.RoomsNo}}</td>
+      <td>
+          <a class="" (click)="showForEdit(hotel)">
+              <i class="flaticon-edit-1"></i>
+          </a>
+      </td>
+      <td>
+          <a class="text-danger" (click)="onDelete(hotel.Id)">
+              <i class="flaticon-delete-1"></i>
+          </a>
+      </td>
+  </tr>
+</table>

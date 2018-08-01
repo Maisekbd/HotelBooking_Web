@@ -1,0 +1,35 @@
+<div class="m-portlet m-portlet--creative m-portlet--bordered-semi">
+	<div class="m-portlet__head">
+		<div class="m-portlet__head-caption">
+			<div class="m-portlet__head-title">
+				<span class="m-portlet__head-icon m--hide">
+					<i class="flaticon-statistics"></i>
+				</span>
+
+				<h2 class="m-portlet__head-label m-portlet__head-label--warning" >
+					<span>{{hotelService.selectedHotel.Name}}</span>
+				</h2>
+			</div>
+		</div>
+
+	</div>
+	<div class="m-portlet__body">
+		<div class="form-row">
+			<div class="form-group col-md-12">
+				<div>
+					<h2>Description <span class="m-badge m-badge--danger" style="float:right;">Available Rooms: {{hotelService.selectedHotel.RoomsNo}}</span></h2>
+				</div>
+				<label class="form-row">{{hotelService.selectedHotel.Description}}</label>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-12">
+				<h2>Location</h2>
+				<label class="form-row">{{hotelService.selectedHotel.Location}}</label>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

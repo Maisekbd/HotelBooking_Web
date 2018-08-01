@@ -1,0 +1,17 @@
+<!--<div style="text-align:center">
+
+</div>-->
+<div class="row">
+    <div class="col-md-6">
+        <app-hotel-reservation></app-hotel-reservation>
+    </div>
+    <div *ngIf="hotelService.selectedHotel.Id != 0" class="col-md-6">
+        <app-hotel-preview></app-hotel-preview>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <app-hotel-reservation-list></app-hotel-reservation-list>
+    </div>
+</div>

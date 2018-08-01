@@ -1,0 +1,51 @@
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title">Dashboard</h3>
+        </div>
+        <div>
+            <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+                <span class="m-subheader__daterange-label">
+                    <span class="m-subheader__daterange-title"></span>
+                    <span class="m-subheader__daterange-date m--font-brand"></span>
+                </span>
+                <a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--square">
+                    <i class="la la-angle-down"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+</div> <!-- END: Subheader -->
+<div class="m-content">
+    <!--begin:: Widgets/Stats--> <div class="m-portlet  m-portlet--unair">
+        <div class="m-portlet__body  m-portlet__body--no-padding">
+            <div class="row m-row--no-padding m-row--col-separator-xl">
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="m-widget24">
+                        <div class="m-widget24__item">
+                            <h4 class="m-widget24__title"> 				            Hotels Count 				        </h4>
+                            <br>
+                            <span class="m-widget24__desc"> 				            All Hotels Count 				        </span>
+                            <span class="m-widget24__stats m--font-brand"> 				        {{statisticsService.currentStatistics.HotelsCount}}     				        </span>
+                            <div class="m--space-10"></div>
+                            
+                        </div>
+                    </div> 				<!--end::Total Profit-->
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <!--begin::New Feedbacks-->
+                    <div class="m-widget24">
+                        <div class="m-widget24__item">
+                            <h4 class="m-widget24__title"> 				           Hotel Reservations Count 				        </h4>
+                            <br>
+                            <span class="m-widget24__desc"> 				            Hotel Reservations Review 				        </span>
+                            <span class="m-widget24__stats m--font-info"> 				            {{statisticsService.currentStatistics.HotelsCount}}				        </span>
+                            <div class="m--space-10"></div>
+
+                        </div>
+                    </div> 				<!--end::New Feedbacks-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

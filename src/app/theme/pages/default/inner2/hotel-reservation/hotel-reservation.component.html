@@ -1,0 +1,91 @@
+<div class="m-portlet m-portlet--creative m-portlet--bordered-semi">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon m--hide">
+                    <i class="flaticon-statistics"></i>
+                </span>
+
+                <h2 class="m-portlet__head-label m-portlet__head-label--success">
+                    <span>Hotel Reservation</span>
+                </h2>
+            </div>
+        </div>
+
+    </div>
+    <div class="m-portlet__body">
+        <form class="hotel-Reservation-form" #hotelReservationForm="ngForm" (ngSubmit)="onSubmit(hotelReservationForm)">
+            <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.Id">
+            <input type="hidden" name="CreatedBy" #CreatedBy="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.CreatedBy">
+            <input type="hidden" name="CreationDate" #CreationDate="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.CreationDate">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name</label>
+                    <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.FirstName"
+                           placeholder="First Name" required>
+                    <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This Field is Required.</div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.LastName"
+                           placeholder="Last Name" required>
+                    <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This Field is Required.</div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>PhoneNo</label>
+                    <input class="form-control" name="PhoneNo" #PhoneNo="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.PhoneNo" placeholder="Phone No"
+                           required>
+                    <div class="validation-error" *ngIf="PhoneNo.invalid && PhoneNo.touched">This Field is Required.</div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Hotel</label>
+                    <!--<input class="form-control" name="HotelId" #RoomsNo="ngModel" [(ngModel)]="hotelService.selectedHotel.HotelId" placeholder="RoomsNo"
+            required>-->
+                    <select class="form-control" name="HotelId" #HotelId="ngModel" (change)="onHotelChange($event.target.value)" [(ngModel)]="hotelReservationService.selectedHotelReservation.HotelId" id="HotelId">
+                        <option value="" disabled selected>select a Hotel</option>
+                        <option *ngFor="let item of hotelService.hotelList" [value]="item.Id">{{item.Name}}</option>
+                    </select>
+
+                    <!--<div class="validation-error" *ngIf="RoomsNo.invalid && RoomsNo.touched">This Field is Required.</div>-->
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Start Date</label>
+                    <!--<input class="form-control" name="HotelId" #RoomsNo="ngModel" [(ngModel)]="hotelService.selectedHotel.HotelId" placeholder="RoomsNo"
+            required>-->
+                    <date-time-picker accuracy="day" [maxView]="3" name="StartDate" #StartDate="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.StartDate"></date-time-picker>
+
+
+                    <!--<div class="validation-error" *ngIf="RoomsNo.invalid && RoomsNo.touched">This Field is Required.</div>-->
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>End Date</label>
+                    <!--<input class="form-control" name="HotelId" #RoomsNo="ngModel" [(ngModel)]="hotelService.selectedHotel.HotelId" placeholder="RoomsNo"
+            required>-->
+                    <date-time-picker startDate="" accuracy="day" [maxView]="3" name="EndDate" #EndDate="ngModel" [(ngModel)]="hotelReservationService.selectedHotelReservation.EndDate"></date-time-picker>
+
+
+                    <!--<div class="validation-error" *ngIf="RoomsNo.invalid && RoomsNo.touched">This Field is Required.</div>-->
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <button [disabled]="!hotelReservationForm.valid" type="submit" class="btn btn-lg btn-block btn-success">
+                        <i class="fa fa-floppy-o"></i> Submit
+                    </button>
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(hotelReservationForm)">
+                        <i class="fa fa-repeat"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
